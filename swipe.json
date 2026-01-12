@@ -1,0 +1,33 @@
+{
+  "04A3B2C1D5": {
+    "URL": "spotify:track:3n3Ppam7vgaVa1iaRUc9Lp",
+    "METADATA": {
+      "playlist_name": "My Favourites",
+      "artist_name": "Artist XYZ"
+    }
+  },
+  "05B2C3D4E6": {
+    "URL": "spotify:playlist:37i9dQZF1DXcBWIGoYBM5M",
+    "METADATA": {
+      "playlist_name": "Top Hits",
+      "artist_name": "Various Artists"
+    }
+  },
+  "73C70810": {
+    "URL": "https://open.spotify.com/album/4WA0COIl14e6amUlwz89pN",
+    "METADATA": {
+      "playlist_name": "Epicloud",
+      "artist_name": "Devin Townsend"
+    }
+  },
+  "B35438AB": {
+    "URL": "https://open.spotify.com/album/5QCXxPUwoOtxeZQmve6w2u",
+    "METADATA": {
+      "Type": "album",
+      "SpotifyID": "5QCXxPUwoOtxeZQmve6w2u",
+      "URI": "spotify:album:5QCXxPUwoOtxeZQmve6w2u",
+      "Album": "Am I A Girl?",
+      "Artist": "Poppy"
+    }
+  }
+}

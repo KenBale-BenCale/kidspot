@@ -1,0 +1,40 @@
+          ┌──────────────────┐
+          │   kidspot.py     │
+          │ Orchestrator     │
+          │ (main thread)    │
+          │ - Startup        │
+          │ - Shutdown       │
+          │ - Monitor loop   │
+          └─────┬────────────┘
+                │
+      ┌─────────┴───────────────────┐
+      │                             │
+      ▼                             ▼
+┌─────────────────────┐      ┌──────────────┐
+│ leds.py             │      │ spot.py      │
+│ Thread(s):          │      │ Thread(s):   │
+│ - optional          │      │ - synchronous│
+│   blink             │      │   calls,     │
+│   timers            │      │   protected  │
+│ Responsibilities:   │      │   by lock    │
+│ - LED states        │      │ Responsibilities: 
+│ - blink, on/off     │      │ - Spotify auth & playback
+│ - duration          │      │ - Device detection
+│                     │      │ - Track/play/pause/volume
+│                     │      │ - Reports availability
+└─────┬───────────────┘      └──────────────
+      │
+      │←─────────direct calls────────┐
+      │                              │
+      ▼                              ▼
+┌─────────────┐                    ┌─────────────┐
+│ rfid.py     │                    │ buttons.py  │
+│ Thread:     │                    │ Thread:     │
+│ - swipe     │                    │ - GPIO      │
+│   listener  │                    │   listener  │
+│ Responsibilities:                │ Responsibilities:
+│ - Detect UID                     │ - Handle button presses
+│ - Lookup swipe.json              │ - Determine short/double press
+│ - Call spot.play_url(uid_url)    │ - Call spot functions:
+│ - Blink LED on unknown UID       │   play(), pause(), next_track()
+└─────────────┘                    └─────────────┘
